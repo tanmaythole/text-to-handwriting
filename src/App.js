@@ -8,6 +8,7 @@ import OutPut from './components/OutPut';
 import DownloadBtns from './components/DownloadBtns';
 
 function App() {
+  const [heading, setHeading] = useState("");
   const [textArea, setTextArea] = useState("");
   const fonts = [
     ['Swanky and Moo Moo','Swanky and Moo Moo'],
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <TextBox textArea={textArea} setTextArea={setTextArea} />
+      <TextBox heading={heading} setHeading={setHeading} textArea={textArea} setTextArea={setTextArea} />
       <Container className="col-md-6">
         <Row>
           <div className="col-md-4 p-1">
@@ -47,7 +48,7 @@ function App() {
       </Container>
 
       <h3 className="container col-md-6 mt-5">Output:</h3>
-      <OutPut fontFamily={fontFamily} text={textArea} />
+      <OutPut fontFamily={fontFamily} heading={heading} text={textArea} />
       <DownloadBtns />
     </>
   );
