@@ -3,7 +3,7 @@ import { Button, Container } from 'react-bootstrap';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-const DownloadBtns = () => {
+const DownloadBtns = (props) => {
     const saveAs = (blob, fileName) =>{
         var elem = window.document.createElement('a');
         elem.href = blob
@@ -45,8 +45,8 @@ const DownloadBtns = () => {
     }
     return (
         <Container className="my-4 col-md-4 text-center d-flex justify-content-around">
-            <Button size="lg" style={{borderRadius:"38px"}} onClick={handleImageDownload}>Save Image</Button>
-            <Button size="lg" style={{borderRadius:"38px"}} onClick={handlePdfDownload}>Save as Pdf</Button>
+            <Button disabled={props.heading.length===0 && props.text.length===0} size="lg" style={{borderRadius:"38px"}} onClick={handleImageDownload}>Save Image</Button>
+            <Button disabled={props.heading.length===0 && props.text.length===0} size="lg" style={{borderRadius:"38px"}} onClick={handlePdfDownload}>Save as Pdf</Button>
         </Container>
     )
 }

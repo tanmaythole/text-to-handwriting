@@ -6,6 +6,7 @@ import { Container, Row } from 'react-bootstrap';
 import Properties from './components/Properties';
 import OutPut from './components/OutPut';
 import DownloadBtns from './components/DownloadBtns';
+import Footer from './components/Footer';
 
 function App() {
   const [heading, setHeading] = useState("");
@@ -62,7 +63,8 @@ function App() {
 
       <h3 className="container col-md-6 mt-5">Output:</h3>
       <OutPut fontFamily={fontFamily} heading={heading} text={textArea} paper={currPaper} color={currColor} />
-      <DownloadBtns />
+      <DownloadBtns heading={heading} text={textArea} />
+      <Footer />
     </>
   );
 }
