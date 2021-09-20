@@ -5,6 +5,7 @@ import TextBox from './components/TextBox';
 import { Container, Row } from 'react-bootstrap';
 import Properties from './components/Properties';
 import OutPut from './components/OutPut';
+import DownloadBtns from './components/DownloadBtns';
 
 function App() {
   const [textArea, setTextArea] = useState("");
@@ -45,7 +46,9 @@ function App() {
         </Row>
       </Container>
 
-        <OutPut fontFamily={fontFamily} text={textArea} />
+      <h3 className="container col-md-6 mt-5">Output:</h3>
+      <OutPut fontFamily={fontFamily} text={textArea} />
+      <DownloadBtns />
     </>
   );
 }
