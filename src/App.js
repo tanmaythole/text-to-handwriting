@@ -11,16 +11,29 @@ function App() {
   const [heading, setHeading] = useState("");
   const [textArea, setTextArea] = useState("");
   const fonts = [
-    ['Swanky and Moo Moo','Swanky and Moo Moo'],
-    ['f2','2']
+    ["'Caveat', cursive", 'Caveat'],
+    ["'Crafty Girls', cursive", "Crafty Girls"],
+    ["'Dancing Script', cursive", "Dancing Script"],
+    ["'Gloria Hallelujah', cursive", "Gloria Hallelujah"],
+    ["'Handlee', cursive", "Handlee"],
+    ["'Homemade Apple', cursive", "Homemade Apple"],
+    ["'Indie Flower', cursive", "Indie Flower"],
+    ["'Mansalva', cursive", "Mansalva"],
+    ["'Patrick Hand', cursive", "Patrick Hand"],
+    ["'Schoolbell', cursive", "Schoolbell"],
+    ["'Swanky and Moo Moo', cursive", "Swanky and Moo Moo"]
   ];
   const colors = [
-    ['c1','1'],
-    ['c2','2']
+    ['#000000','Dark Black'],
+    ['#253342','Light Black'],
+    ['#000f55','Dark Blue'],
+    ['#011b96','Light Blue'],
+    ['#8c0e19','Dark Red'],
+    ['#bb1422','Light Red']
   ];
   const papers = [
-    ['p1','1'],
-    ['p2','2']
+    ['blue-lined-paper.png','Blue Lined Paper'],
+    ['white-paper.jpg','White Paper']
   ];
   const [fontFamily, setFontFamily] = useState(fonts[0][0] || "");
   const [currColor, setCurrColor] = useState(colors[0][0] || "");
@@ -38,7 +51,7 @@ function App() {
           </div>  
           <div className="col-md-4 p-1">
             Color:
-            <Properties currValue={currColor} options={colors} handleChange={setCurrColor} />
+            <Properties currValue={currColor} options={colors} handleChange={setCurrColor} isColorComponent={true} />
           </div>  
           <div className="col-md-4 p-1">
             Paper Type:
@@ -48,7 +61,7 @@ function App() {
       </Container>
 
       <h3 className="container col-md-6 mt-5">Output:</h3>
-      <OutPut fontFamily={fontFamily} heading={heading} text={textArea} />
+      <OutPut fontFamily={fontFamily} heading={heading} text={textArea} paper={currPaper} color={currColor} />
       <DownloadBtns />
     </>
   );

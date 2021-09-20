@@ -6,7 +6,7 @@ const Properties = (props) => {
         <div>
             <Form.Select onChange={(e)=>props.handleChange(e.target.value)} className="bg-white" style={{fontFamily:props.isFontComponent?props.currValue:"initial"}}>
                 {props.options.map((e)=>{
-                    return <option value={e[0]} style={{fontFamily:props.isFontComponent?e[0]:"initial"}}>{e[1]}</option>;
+                    return <option value={e[0]} style={{fontFamily:props.isFontComponent?e[0]:"initial", color:props.isColorComponent?e[0]:"initial"}}>{e[1]}</option>;
                 })}
             </Form.Select>
         </div>
