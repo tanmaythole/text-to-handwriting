@@ -12,10 +12,10 @@ const Properties = (props) => {
 
                 <Dropdown.Menu>
                     {props.options.map((e, index)=>{
-                        return <Dropdown.Item eventKey={index} className="dd-item" style={{fontFamily:props.isFontComponent?e[0]:"'Poppins', sans-serif;", color:props.isColorComponent?e[0]:"initial"}}>
+                        return <Dropdown.Item eventKey={index} className="dd-item d-flex" style={{fontFamily:props.isFontComponent?e[0]:"'Poppins', sans-serif;", color:props.isColorComponent?e[0]:"initial"}}>
                             {!props.isFontComponent?(
                                 props.isColorComponent?(
-                                    <img style={{background:e[0]}} alt="color" />
+                                    <div style={{background:e[0]}} className="colorBox" ></div>
                                 ):(<img src={`/assets/images/${e[0]}`} alt={e[1]} />)
                             ):""}
                             {e[1]}

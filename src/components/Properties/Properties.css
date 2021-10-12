@@ -11,7 +11,8 @@
     border: 0;
     text-align: left;
 }
-.dd-item img{
+.dd-item img,
+.dd-item .colorBox{
     height: 25px !important;
     width: 25px !important;
     margin-right: 10px;
