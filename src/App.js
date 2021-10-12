@@ -1,12 +1,12 @@
 import './App.css';
 import React, {useState} from 'react';
-import NavBar from './components/NavBar';
-import TextBox from './components/TextBox';
+import NavBar from './components/NavBar/NavBar';
+import TextBox from './components/TextBox/TextBox';
 import { Container, Row } from 'react-bootstrap';
-import Properties from './components/Properties';
-import OutPut from './components/OutPut';
-import DownloadBtns from './components/DownloadBtns';
-import Footer from './components/Footer';
+import Properties from './components/Properties/Properties';
+import OutPut from './components/OutPut/OutPut';
+import DownloadBtns from './components/DownloadBtns/DownloadBtns';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [heading, setHeading] = useState("");
@@ -36,9 +36,9 @@ function App() {
     ['blue-lined-paper.png','Blue Lined Paper'],
     ['white-paper.jpg','White Paper']
   ];
-  const [fontFamily, setFontFamily] = useState(fonts[0][0] || "");
-  const [currColor, setCurrColor] = useState(colors[0][0] || "");
-  const [currPaper, setCurrPaper] = useState(papers[0][0] || "");
+  const [fontFamily, setFontFamily] = useState(fonts[0] || "");
+  const [currColor, setCurrColor] = useState(colors[0] || "");
+  const [currPaper, setCurrPaper] = useState(papers[0] || "");
 
   return (
     <>
@@ -62,7 +62,7 @@ function App() {
       </Container>
 
       <h3 className="container col-md-6 mt-5">Output:</h3>
-      <OutPut fontFamily={fontFamily} heading={heading} text={textArea} paper={currPaper} color={currColor} />
+      <OutPut fontFamily={fontFamily[0]} heading={heading} text={textArea} paper={currPaper[0]} color={currColor[0]} />
       <DownloadBtns heading={heading} text={textArea} />
       <Footer />
     </>

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './OutPut.css';
 
 const OutPut = (props) => {
     
     return (
-        <div style={{width:"794px", height:"1123px", margin:"auto"}} className="shadow" id="outputSection">
-            <div style={{width:"100%", height:"100%", backgroundSize:"cover", backgroundImage:"url(/assets/images/"+props.paper+")"}}>
-                <div style={{padding: "0px 16px 0 132px",height:"95%", overflow:"hidden", color:props.color, fontFamily:props.fontFamily, whiteSpace:'pre-wrap'}}>
+        <div className="shadow" id="outputSection">
+            <div className="background" style={{backgroundImage:"url(/assets/images/"+props.paper+")"}}>
+                <div className="textBox" style={{color:props.color, fontFamily:props.fontFamily}}>
                     <div className="text-center" style={{height:"100px", fontSize:"25px"}}>
                         {props.heading}
                     </div>
