@@ -16,7 +16,7 @@ So I made this tool that converts text to an image that looks like handwriting.
 ## Output:
 
 <p align="center">
-<img width="400" src="/assets/images/output.png">
+<img width="400" src="/public/assets/images/output.png">
 </p>
 
 ## How to Run Locally
