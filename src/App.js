@@ -2,7 +2,7 @@ import './App.css';
 import React, {useState} from 'react';
 import NavBar from './components/NavBar/NavBar';
 import TextBox from './components/TextBox/TextBox';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 import Properties from './components/Properties/Properties';
 import OutPut from './components/OutPut/OutPut';
 import DownloadBtns from './components/DownloadBtns/DownloadBtns';
@@ -40,6 +40,21 @@ function App() {
   const [currColor, setCurrColor] = useState(colors[0] || "");
   const [currPaper, setCurrPaper] = useState(papers[0] || "");
 
+  // Custom Font
+  const handleAddFontFromFile = async (fileObj) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      console.log(e.target.result)
+      const font = new FontFace("TempFont", e.target.result);
+      font.load().then((loadedFace) => {
+        document.fonts.add(loadedFace);
+        console.log(loadedFace)
+        setFontFamily(["TempFont", "Custom Font"]);
+      });
+    };
+    reader.readAsArrayBuffer(fileObj.target.files[0]);
+  }
+
   return (
     <>
       <NavBar />
@@ -59,6 +74,10 @@ function App() {
             <Properties currValue={currPaper} options={papers} handleChange={setCurrPaper} />
           </div>
         </Row>
+        <Form.Group controlId="formFile" className="my-3">
+          <Form.Label>Choose Your Own Font:</Form.Label>
+          <Form.Control type="file" accept=".woff, .woff2, .ttf" onChange={handleAddFontFromFile}/>
+        </Form.Group>
       </Container>
 
       <h3 className="container col-md-6 mt-5">Output:</h3>
